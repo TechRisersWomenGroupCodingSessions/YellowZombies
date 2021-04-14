@@ -1,4 +1,3 @@
-
-class Survivors:
-
-
+class Survivor:
+    name="Judy"
+    wound=0
