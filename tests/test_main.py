@@ -15,10 +15,14 @@ class TestZombies:
         
         assert survivor.wounds== 0
 
-    # def test_died_after_two_wounds(self):
-    #     survivor1=Survivor()
-    #     survivor2=Survivor()
-    #     survivor1.wounds=2
-    #     survivor1.wounds=1
-    #     assert survivor1.dead== True
-    #     assert survivor2.dead== False
+    def test_survivor_dies_immediately_after_two_wounds(self):
+        survivor = Survivor()
+
+        survivor.wounds = 1
+        assert survivor.is_dead == False
+        
+        survivor.wounds = 2
+        assert survivor.is_dead == True
+        
+        survivor.wounds = 3
+        assert survivor.is_dead == True
