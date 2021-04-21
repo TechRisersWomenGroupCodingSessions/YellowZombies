@@ -26,3 +26,12 @@ class TestZombies:
         
         survivor.wounds = 3
         assert survivor.is_dead == True
+
+# wounds are ignored- 
+# any name and not just Judy 
+    def test_name_can_be_anything(self):
+        survivor=Survivor()
+        survivor.name= "Becky"
+        assert survivor.name== "Becky"
+
+
