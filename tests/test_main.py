@@ -10,10 +10,10 @@ class TestZombies:
         
         assert survivor.name== "Judy" 
 
-    def test_check_wound_is_zero(self):
+    def test_check_survivor_has_zero_wounds(self):
         survivor=Survivor()
         
-        assert survivor.wound== 0
+        assert survivor.wounds== 0
 
     # def test_died_after_two_wounds(self):
     #     survivor1=Survivor()

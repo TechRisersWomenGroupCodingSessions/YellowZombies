@@ -1,3 +1,3 @@
 class Survivor:
     name="Judy"
-    wound=0
+    wounds=0
