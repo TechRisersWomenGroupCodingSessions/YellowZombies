@@ -1,7 +1,7 @@
 class Survivor:
 
-    def __init__(self):
-        self._name="Judy" #change name to intitialised name 
+    def __init__(self, name):
+        self._name= name #change name to intitialised name
         self._wounds=0
         self._is_dead = False
 
