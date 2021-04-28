@@ -33,4 +33,14 @@ class TestZombies:
 
     def test_survivor_starts_with_3_actions(self):
         survivor = Survivor("Becky")
-        assert survivor.actions == 3
+        assert survivor.actions == 3 #changename?
+
+    def test_survivor_can_carry_up_to_five_pieces_of_equipment(self):
+        survivor = Survivor("Becky")
+
+        survivor.equipment_count = 3
+        assert survivor.equipment_count == 3
+
+        survivor.equipment_count = 5
+        assert survivor.equipment_count == 5
+        print(survivor.equipment_count)
