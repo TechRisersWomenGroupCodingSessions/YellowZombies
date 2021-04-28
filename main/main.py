@@ -4,6 +4,7 @@ class Survivor:
         self._name = name
         self._wounds = 0
         self._is_dead = False
+        self._actions = 3
 
     @property
     def name(self):
@@ -29,3 +30,7 @@ class Survivor:
     @property
     def is_dead(self):
         return self._is_dead
+
+    @property
+    def actions(self):
+        return self._actions

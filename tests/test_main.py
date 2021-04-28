@@ -31,4 +31,6 @@ class TestZombies:
         survivor=Survivor("Becky")
         assert survivor.name == "Becky"
 
-
+    def test_survivor_starts_With_3_actions(self):
+        survivor = Survivor("Becky")
+        assert survivor.actions == 3
