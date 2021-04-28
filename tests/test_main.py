@@ -45,11 +45,10 @@ class TestZombies:
         survivor.pick_equipment("Bottled Water")
 
         assert len(survivor.equipments) == 5
-        print("Hakuna Matata")
 
-        with raises(Exception) as excinfo:
+        with raises(Exception) as limit_reached_exception:
+            #print("Hakuna Matata")
             survivor.pick_equipment("Molotov")
-            assert False
 
-            assert "Limit reached" in str(excinfo.value)
-            print(excinfo.value)
+        assert "Limit reached" in str(limit_reached_exception.value)
+        #print(limit_reached_exception.value)
