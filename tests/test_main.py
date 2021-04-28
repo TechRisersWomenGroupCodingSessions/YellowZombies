@@ -1,7 +1,7 @@
 # write tests here, don't forget to import what you need and
 # info: https://docs.pytest.org/en/latest/getting-started.html#group-multiple-tests-in-a-class
 from main.main import Survivor
-
+from pytest import raises
 
 class TestZombies:
 
@@ -38,9 +38,13 @@ class TestZombies:
     def test_survivor_can_carry_up_to_five_pieces_of_equipment(self):
         survivor = Survivor("Becky")
 
-        survivor.equipment_count = 3
-        assert survivor.equipment_count == 3
+        survivor.pick_equipment("Baseball bat")
+        survivor.pick_equipment("Frying pan")
+        survivor.pick_equipment("Katana")
+        survivor.pick_equipment("Pistol")
+        survivor.pick_equipment("Bottled Water")
 
-        survivor.equipment_count = 5
-        assert survivor.equipment_count == 5
-        print(survivor.equipment_count)
+        assert len(survivor.equipments) == 5
+
+        with raises(Exception):
+            survivor.pick_equipment("Molotov")

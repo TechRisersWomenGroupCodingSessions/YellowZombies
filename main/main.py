@@ -5,6 +5,7 @@ class Survivor:
         self._wounds = 0
         self._is_dead = False
         self._actions = 3
+        self._equipments = []
 
     @property
     def name(self):
@@ -34,3 +35,14 @@ class Survivor:
     @property
     def actions(self):
         return self._actions
+
+    @property
+    def equipments(self):
+        return self._equipments
+
+    def pick_equipment(self, equipment):
+        if len(self._equipments) < 5:
+            self._equipments.append(equipment)
+        else:
+            raise Exception("Cannot pick more than five pieces of equipment")
+ 
