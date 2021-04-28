@@ -1,8 +1,8 @@
 class Survivor:
 
     def __init__(self, name):
-        self._name= name #change name to intitialised name
-        self._wounds=0
+        self._name = name
+        self._wounds = 0
         self._is_dead = False
 
     @property
@@ -11,7 +11,7 @@ class Survivor:
 
     @name.setter
     def name(self, new_name):
-        self._name= new_name
+        self._name = new_name
 
     @property
     def wounds(self):

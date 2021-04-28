@@ -8,12 +8,12 @@ class TestZombies:
     def test_check_survivor_has_name(self):
         survivor=Survivor("Judy")
         
-        assert survivor.name== "Judy" 
+        assert survivor.name == "Judy" 
 
     def test_check_survivor_has_zero_wounds(self):
         survivor=Survivor("Judy")
         
-        assert survivor.wounds== 0
+        assert survivor.wounds == 0
 
     def test_survivor_dies_immediately_after_two_wounds(self):
         survivor = Survivor("Judy")
@@ -27,8 +27,6 @@ class TestZombies:
         survivor.wounds = 3
         assert survivor.is_dead == True
 
-# wounds are ignored- 
-# any name and not just Judy 
     def test_name_can_be_anything(self):
         survivor=Survivor("Becky")
         assert survivor.name == "Becky"
