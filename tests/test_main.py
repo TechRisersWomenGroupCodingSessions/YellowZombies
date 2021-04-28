@@ -6,12 +6,12 @@ from main.main import Survivor
 class TestZombies:
 
     def test_check_survivor_has_name(self):
-        survivor=Survivor("Judy")
+        survivor = Survivor("Judy")
         
         assert survivor.name == "Judy" 
 
     def test_check_survivor_has_zero_wounds(self):
-        survivor=Survivor("Judy")
+        survivor = Survivor("Judy")
         
         assert survivor.wounds == 0
 
@@ -19,18 +19,18 @@ class TestZombies:
         survivor = Survivor("Judy")
 
         survivor.wounds = 1
-        assert survivor.is_dead == False
+        assert survivor.is_dead is False
         
         survivor.wounds = 2
-        assert survivor.is_dead == True
+        assert survivor.is_dead is True
         
         survivor.wounds = 3
-        assert survivor.is_dead == True
+        assert survivor.is_dead is True
 
     def test_name_can_be_anything(self):
-        survivor=Survivor("Becky")
+        survivor = Survivor("Becky")
         assert survivor.name == "Becky"
 
-    def test_survivor_starts_With_3_actions(self):
+    def test_survivor_starts_with_3_actions(self):
         survivor = Survivor("Becky")
         assert survivor.actions == 3
