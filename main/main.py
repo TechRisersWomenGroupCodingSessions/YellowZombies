@@ -44,5 +44,5 @@ class Survivor:
         if len(self._equipments) < 5:
             self._equipments.append(equipment)
         else:
-            raise Exception("Cannot pick more than five pieces of equipment")
+            raise Exception("Limit reached")
  
