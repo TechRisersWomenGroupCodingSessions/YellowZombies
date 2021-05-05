@@ -52,3 +52,16 @@ class TestZombies:
 
         assert "Limit reached" in str(limit_reached_exception.value)
         #print(limit_reached_exception.value)
+
+    def test_survivor_can_carry_up_to_two_in_hand_equipment(self):
+        survivor = Survivor("Becky")
+
+        survivor.pick_equipment("Baseball bat")
+        survivor.pick_equipment("Frying pan")
+        survivor.pick_equipment("Katana")
+        
+        assert len(survivor.in_hand_equipment) <= 2
+        assert survivor.in_hand_equipment[0] == "Baseball bat"
+        assert survivor.in_hand_equipment[1] == "Frying pan"
+        # TODO in_hand_equipmnet does not exist yet
+        # TODO first 2 items in pick equipment should go to hand
