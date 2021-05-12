@@ -24,7 +24,7 @@ class Survivor:
     @wounds.setter
     def wounds(self, new_wounds):
         self._wounds = new_wounds
-        if self._wounds == 1:
+        if self._wounds == 1 and len(self._equipments) == 5:
             self._equipments.pop
             self._in_reserve.pop
         if self._wounds >= 2:
