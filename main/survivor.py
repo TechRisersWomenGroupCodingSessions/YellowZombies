@@ -24,11 +24,14 @@ class Survivor:
     @wounds.setter
     def wounds(self, new_wounds):
         self._wounds = new_wounds
+        if self._wounds == 1:
+            self._equipments.pop
+            self._in_reserve.pop
         if self._wounds >= 2:
 
             self._is_dead = True
         else:
-            self._is_dead = False 
+            self._is_dead = False
 
     @property
     def is_dead(self):
@@ -60,5 +63,9 @@ class Survivor:
                     self._in_reserve.append(equipment)
         else:
             raise Exception("Limit reached")
+
+ #Wounds function, how to Coll into a collection for something, remove the equipment array
+#Test cases: no reserve equipment and 1 wound, no equipment and 1 wound
+
 
 
