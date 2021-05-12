@@ -99,5 +99,5 @@ class TestZombies:
 
         assert survivor.in_reserve[0] == "Katana"
         assert survivor.in_reserve[1] == "Pistol"
-        assert survivor.in_reserve[2] is None
+        assert len(survivor.in_reserve) == 2
 
