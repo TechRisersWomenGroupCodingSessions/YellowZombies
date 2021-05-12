@@ -6,6 +6,7 @@ class Survivor:
         self._is_dead = False
         self._actions = 3
         self._equipments = []
+        self._in_hand_equipment = []
 
     @property
     def name(self):
@@ -37,12 +38,19 @@ class Survivor:
         return self._actions
 
     @property
+    def in_hand_equipment(self):
+        return self._in_hand_equipment
+
+    @property
     def equipments(self):
         return self._equipments
 
     def pick_equipment(self, equipment):
         if len(self._equipments) < 5:
             self._equipments.append(equipment)
+            if len(self._in_hand_equipment) < 2:
+                self._in_hand_equipment.append(equipment)
         else:
             raise Exception("Limit reached")
- 
+
+
