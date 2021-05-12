@@ -70,6 +70,8 @@ class TestZombies:
         survivor.pick_equipment("Baseball bat")
         survivor.pick_equipment("Frying pan")
         survivor.pick_equipment("Katana")
+        survivor.pick_equipment("Pistol")
+        survivor.pick_equipment("Bottled Water")
 
         assert len(survivor.in_hand_equipment) <= 2
         assert survivor.in_hand_equipment[0] == "Baseball bat"
@@ -77,3 +79,5 @@ class TestZombies:
 
         assert len(survivor.in_reserve) <= 3
         assert survivor.in_reserve[0] == "Katana"
+        assert survivor.in_reserve[1] == "Pistol"
+        assert survivor.in_reserve[2] == "Bottled Water"
