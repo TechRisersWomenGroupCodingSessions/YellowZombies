@@ -19,13 +19,13 @@ class TestZombies:
     def test_survivor_dies_immediately_after_two_wounds(self):
         survivor = Survivor("Judy")
 
-        survivor.wounds = 1
+        survivor.ouch()
         assert survivor.is_dead is False
 
-        survivor.wounds = 2
+        survivor.ouch()
         assert survivor.is_dead is True
 
-        survivor.wounds = 3
+        survivor.ouch()
         assert survivor.is_dead is True
 
     def test_name_can_be_anything(self):
@@ -91,7 +91,7 @@ class TestZombies:
         survivor.pick_equipment("Pistol")
         survivor.pick_equipment("Bottled Water")
 
-        survivor.wounds = 1
+        survivor.ouch()
         assert len(survivor._in_hand_equipment + survivor._in_reserve_equipment) == 4
         assert survivor.in_hand_equipment[0] == "Baseball bat"
         assert survivor.in_hand_equipment[1] == "Frying pan"
@@ -106,7 +106,7 @@ class TestZombies:
         survivor.pick_equipment("Baseball bat")
         survivor.pick_equipment("Frying pan")
 
-        survivor.wounds = 1
+        survivor.ouch()
         assert len(survivor._in_hand_equipment + survivor._in_reserve_equipment) == 2
 
         survivor.pick_equipment("Katana")
