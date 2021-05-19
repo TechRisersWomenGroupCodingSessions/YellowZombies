@@ -100,3 +100,19 @@ class TestZombies:
         assert survivor.in_reserve[1] == "Pistol"
         assert len(survivor.in_reserve) == 2
 
+    def test_survivor_gets_wound_and_reduces_equipment_when_inventory_not_full(self):
+        survivor = Survivor("Becky")
+
+        survivor.pick_equipment("Baseball bat")
+        survivor.pick_equipment("Frying pan")
+
+        survivor.wounds = 1
+        assert len(survivor._in_hand_equipment + survivor._in_reserve) == 2
+
+        survivor.pick_equipment("Katana")
+        survivor.pick_equipment("Pistol")
+        with raises(Exception) as limit_reached_exception:
+            survivor.pick_equipment("Bottled Water")
+
+        assert "Limit reached" in str(limit_reached_exception.value)
+
