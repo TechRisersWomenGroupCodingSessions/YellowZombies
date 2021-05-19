@@ -34,7 +34,7 @@ class TestZombies:
 
     def test_survivor_starts_with_3_actions(self):
         survivor = Survivor("Becky")
-        assert survivor.actions == 3  # changename?
+        assert survivor.actions_remaining == 3
 
     def test_survivor_can_carry_up_to_five_pieces_of_equipment(self):
         survivor = Survivor("Becky")
@@ -45,7 +45,7 @@ class TestZombies:
         survivor.pick_equipment("Pistol")
         survivor.pick_equipment("Bottled Water")
 
-        assert len(survivor._in_hand_equipment + survivor._in_reserve) == 5
+        assert len(survivor._in_hand_equipment + survivor._in_reserve_equipment) == 5
 
         with raises(Exception) as limit_reached_exception:
             survivor.pick_equipment("Molotov")
@@ -82,7 +82,7 @@ class TestZombies:
         assert survivor.in_reserve[1] == "Pistol"
         assert survivor.in_reserve[2] == "Bottled Water"
 
-    def test_survivor_gets_wound_and_reduces_equipment(self):
+    def test_survivor_gets_wound_and_reduces_equipment_capacity_when_full(self):
         survivor = Survivor("Becky")
 
         survivor.pick_equipment("Baseball bat")
@@ -92,7 +92,7 @@ class TestZombies:
         survivor.pick_equipment("Bottled Water")
 
         survivor.wounds = 1
-        assert len(survivor._in_hand_equipment + survivor._in_reserve) == 4
+        assert len(survivor._in_hand_equipment + survivor._in_reserve_equipment) == 4
         assert survivor.in_hand_equipment[0] == "Baseball bat"
         assert survivor.in_hand_equipment[1] == "Frying pan"
 
@@ -100,14 +100,14 @@ class TestZombies:
         assert survivor.in_reserve[1] == "Pistol"
         assert len(survivor.in_reserve) == 2
 
-    def test_survivor_gets_wound_and_reduces_equipment_when_inventory_not_full(self):
+    def test_survivor_gets_wound_and_reduces_equipment_capacity_when_not_full(self):
         survivor = Survivor("Becky")
 
         survivor.pick_equipment("Baseball bat")
         survivor.pick_equipment("Frying pan")
 
         survivor.wounds = 1
-        assert len(survivor._in_hand_equipment + survivor._in_reserve) == 2
+        assert len(survivor._in_hand_equipment + survivor._in_reserve_equipment) == 2
 
         survivor.pick_equipment("Katana")
         survivor.pick_equipment("Pistol")

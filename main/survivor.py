@@ -4,9 +4,9 @@ class Survivor:
         self._name = name
         self._wounds = 0
         self._is_dead = False
-        self._actions = 3
+        self._actions_remaining = 3
         self._in_hand_equipment = []
-        self._in_reserve = []
+        self._in_reserve_equipment = []
         self._max_capacity = 5
 
 
@@ -25,8 +25,8 @@ class Survivor:
     @wounds.setter
     def wounds(self, new_wounds):
         self._wounds = new_wounds
-        if self._wounds == 1 and len(self._in_hand_equipment + self._in_reserve) == 5:
-            self._in_reserve.pop()
+        if self._wounds == 1 and len(self._in_hand_equipment + self._in_reserve_equipment) == 5:
+            self._in_reserve_equipment.pop()
         if self._wounds == 1:
             self._max_capacity = 4
         if self._wounds >= 2:
@@ -40,8 +40,8 @@ class Survivor:
         return self._is_dead
 
     @property
-    def actions(self):
-        return self._actions
+    def actions_remaining(self):
+        return self._actions_remaining
 
     @property
     def in_hand_equipment(self):
@@ -49,19 +49,19 @@ class Survivor:
 
     @property
     def in_reserve(self):
-        return self._in_reserve
+        return self._in_reserve_equipment
 
     @property
     def max_capacity(self):
         return self._max_capacity
 
     def pick_equipment(self, equipment):
-        if len(self._in_hand_equipment + self._in_reserve) < self._max_capacity:
+        if len(self._in_hand_equipment + self._in_reserve_equipment) < self._max_capacity:
             if len(self._in_hand_equipment) < 2:
                 self._in_hand_equipment.append(equipment)
             else:
-                if len(self._in_reserve) < 3:
-                    self._in_reserve.append(equipment)
+                if len(self._in_reserve_equipment) < 3:
+                    self._in_reserve_equipment.append(equipment)
         else:
             raise Exception("Limit reached")
 
