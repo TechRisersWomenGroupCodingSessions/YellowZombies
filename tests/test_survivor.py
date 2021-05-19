@@ -45,10 +45,9 @@ class TestZombies:
         survivor.pick_equipment("Pistol")
         survivor.pick_equipment("Bottled Water")
 
-        assert len(survivor.equipments) == 5
+        assert len(survivor._in_hand_equipment + survivor._in_reserve) == 5
 
         with raises(Exception) as limit_reached_exception:
-            # print("Hakuna Matata")
             survivor.pick_equipment("Molotov")
 
         assert "Limit reached" in str(limit_reached_exception.value)
@@ -93,7 +92,7 @@ class TestZombies:
         survivor.pick_equipment("Bottled Water")
 
         survivor.wounds = 1
-        assert len(survivor.equipments) == 4
+        assert len(survivor._in_hand_equipment + survivor._in_reserve) == 4
         assert survivor.in_hand_equipment[0] == "Baseball bat"
         assert survivor.in_hand_equipment[1] == "Frying pan"
 

@@ -5,7 +5,7 @@ class Survivor:
         self._wounds = 0
         self._is_dead = False
         self._actions = 3
-        self._equipments = []
+        #self._equipments = []
         self._in_hand_equipment = []
         self._in_reserve = []
 
@@ -24,9 +24,9 @@ class Survivor:
     @wounds.setter
     def wounds(self, new_wounds):
         self._wounds = new_wounds
-        if self._wounds == 1 and len(self._equipments) == 5:
-            self._equipments.pop
-            self._in_reserve.pop
+        if self._wounds == 1 and len(self._in_hand_equipment + self._in_reserve) == 5:
+            #self._equipments.pop()
+            self._in_reserve.pop()
         if self._wounds >= 2:
 
             self._is_dead = True
@@ -41,9 +41,9 @@ class Survivor:
     def actions(self):
         return self._actions
 
-    @property
-    def equipments(self):
-        return self._equipments
+    #@property
+    #def equipments(self):
+        #return self._equipments
 
     @property
     def in_hand_equipment(self):
@@ -54,8 +54,8 @@ class Survivor:
         return self._in_reserve
 
     def pick_equipment(self, equipment):
-        if len(self._equipments) < 5:
-            self._equipments.append(equipment)
+        if len(self._in_hand_equipment + self._in_reserve) < 5:
+            #self._equipments.append(equipment)
             if len(self._in_hand_equipment) < 2:
                 self._in_hand_equipment.append(equipment)
             else:
