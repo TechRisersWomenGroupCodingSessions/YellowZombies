@@ -9,7 +9,6 @@ class Survivor:
         self._in_reserve_equipment = []
         self._max_capacity = 5
 
-
     @property
     def name(self):
         return self._name
@@ -72,8 +71,6 @@ class Survivor:
                 self._is_dead = False
 
 
-
- #Wounds function, how to Coll into a collection for something
 
 
 
