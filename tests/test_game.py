@@ -1,7 +1,7 @@
 #rename test to whatever random name aishah comes up with that day
 from main.game import Game
 from main.survivor import Survivor
-
+from pytest import raises
 
 class TestGame:
 
@@ -17,3 +17,13 @@ class TestGame:
         assert game.survivors_remaining() == 1
         assert survivor.name == "Becky"
 
+    def test_survivor_name_is_unique(self):
+        game = Game()
+        survivor = Survivor("Becky")
+        game.add_survivor(survivor)
+        survivor2 = Survivor("Becky")
+
+        with raises(Exception) as unique_name_exception:
+            game.add_survivor(survivor2)
+
+        assert "Name already used" in str(unique_name_exception.value)

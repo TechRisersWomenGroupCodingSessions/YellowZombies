@@ -15,5 +15,8 @@ class Game:
         return len(self.survivors)
 
     def add_survivor(self, survivor):
-        self.survivors.append(survivor)
+        if survivor.name not in self.survivors:
+            self.survivors.append(survivor.name)
+        else:
+            raise Exception("Name already used")
 
