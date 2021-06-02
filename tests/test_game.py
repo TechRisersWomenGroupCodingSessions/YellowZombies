@@ -15,7 +15,16 @@ class TestGame:
         game.add_survivor(survivor)
 
         assert game.survivors_remaining() == 1
-        assert survivor.name == "Becky"
+
+    def test_survivor_is_unique(self):
+        game = Game()
+        survivor = Survivor("Becky")
+        game.add_survivor(survivor)
+
+        with raises(Exception) as unique_name_exception:
+            game.add_survivor(survivor)
+
+        assert "Name already used" in str(unique_name_exception.value)
 
     def test_survivor_name_is_unique(self):
         game = Game()
@@ -27,3 +36,4 @@ class TestGame:
             game.add_survivor(survivor2)
 
         assert "Name already used" in str(unique_name_exception.value)
+
