@@ -42,8 +42,18 @@ class TestGame:
         survivor = Survivor("Becky")
         game.add_survivor(survivor)
         survivor2 = Survivor("Isabel")
-
-        
         game.add_survivor(survivor2)
 
-        assert game.survivors_remaining()==2
+        assert game.survivors_remaining() == 2
+
+    def test_game_ends_if_all_survivors_dead(self):
+        game = Game()
+        survivor = Survivor("Becky")
+        game.add_survivor(survivor)
+        survivor.ouch()
+        survivor.ouch()
+
+        assert game.game_status() is True
+
+
+
