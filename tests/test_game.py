@@ -37,3 +37,13 @@ class TestGame:
 
         assert "Name already used" in str(unique_name_exception.value)
 
+    def test_survivor_name_is_not_unique(self):
+        game = Game()
+        survivor = Survivor("Becky")
+        game.add_survivor(survivor)
+        survivor2 = Survivor("Isabel")
+
+        
+        game.add_survivor(survivor2)
+
+        assert game.survivors_remaining()==2
