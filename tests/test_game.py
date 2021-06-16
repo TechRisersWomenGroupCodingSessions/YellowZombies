@@ -53,7 +53,7 @@ class TestGame:
         survivor.ouch()
         survivor.ouch()
 
-        assert game.game_status() is True
+        assert game.game_status() is False
 
 
 

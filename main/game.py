@@ -6,22 +6,23 @@ class Game:
 
     def __init__(self):
         self._survivors = []
-        self._game_over = False
+        #self._game_over = False
 
     @property
     def survivors(self):
         return self._survivors
 
-    @property
-    def game_over(self):
-        return self._game_over
+    #@property
+    #def game_over(self):
+        #return self._game_over
 
 # ahhhh think about this
     def game_status(self):
         survivors_alive = list(filter(lambda s: s.is_dead is False, self.survivors))
         if len(survivors_alive) == 0:
-            self._game_over = True
-        return self._game_over
+            return False
+        else:
+            return True
 
     def survivors_remaining(self):
         return len(self.survivors)
