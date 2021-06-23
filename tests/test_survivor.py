@@ -116,8 +116,14 @@ class TestSurvivors:
 
         assert "Limit reached" in str(limit_reached_exception.value)
 
-    def test_survivor_has_zero_experience(self):
+    def test_survivor_starts_with_zero_experience(self):
         survivor = Survivor("Becky")
 
         assert survivor.experience == 0
+
+    def test_survivor_starts_with_level_blue(self):
+        survivor = Survivor("Becky")
+
+        assert survivor.level == "Blue"
+
         

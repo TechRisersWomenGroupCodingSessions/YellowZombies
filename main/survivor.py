@@ -9,6 +9,7 @@ class Survivor:
         self._in_reserve_equipment = []
         self._max_capacity = 5
         self._experience = 0
+        self._level = "Blue"
 
     @property
     def name(self):
@@ -49,6 +50,10 @@ class Survivor:
     @property
     def experience(self):
         return self._experience
+
+    @property
+    def level(self):
+        return self._level
 
     def pick_equipment(self, equipment):
         if len(self._in_hand_equipment + self._in_reserve_equipment) < self._max_capacity:
