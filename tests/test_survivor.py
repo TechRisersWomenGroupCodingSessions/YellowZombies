@@ -4,7 +4,7 @@ from main.survivor import Survivor
 from pytest import raises
 
 
-class TestZombies:
+class TestSurvivors:
 
     def test_check_survivor_has_name(self):
         survivor = Survivor("Judy")
@@ -116,3 +116,8 @@ class TestZombies:
 
         assert "Limit reached" in str(limit_reached_exception.value)
 
+    def test_survivor_has_zero_experience(self):
+        survivor = Survivor("Becky")
+
+        assert survivor.experience == 0
+        
