@@ -80,6 +80,13 @@ class Survivor:
             else:
                 self._is_dead = False
 
+    def increase_experience(self): 
+        """ Increase the survivor experience by 1. 
+         """
+        self._experience +=1
+
+
+
 
 
 
