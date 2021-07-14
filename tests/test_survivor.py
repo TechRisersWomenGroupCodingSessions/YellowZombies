@@ -132,3 +132,11 @@ class TestSurvivors:
         survivor.increase_experience()
 
         assert survivor.experience == 1
+
+    def test_survivor_kills_zombie(self):
+        survivor = Survivor("Becky")
+
+        survivor.kills_zombie()
+
+        assert survivor.experience == 1
+        assert survivor.zombie_count == 1

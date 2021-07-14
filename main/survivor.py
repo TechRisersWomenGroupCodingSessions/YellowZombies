@@ -10,6 +10,7 @@ class Survivor:
         self._max_capacity = 5
         self._experience = 0
         self._level = "Blue"
+        self._zombie_count = 0
 
     @property
     def name(self):
@@ -55,6 +56,10 @@ class Survivor:
     def level(self):
         return self._level
 
+    @property
+    def zombie_count(self):
+        return self._zombie_count
+
     def pick_equipment(self, equipment):
         if len(self._in_hand_equipment + self._in_reserve_equipment) < self._max_capacity:
             if len(self._in_hand_equipment) < 2:
@@ -85,9 +90,7 @@ class Survivor:
          """
         self._experience +=1
 
-
-
-
-
-
-
+    def kills_zombie(self):
+        """ Kills zombie """
+        self._zombie_count += 1
+        self.increase_experience()
