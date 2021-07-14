@@ -90,7 +90,17 @@ class Survivor:
          """
         self._experience +=1
 
+        if self._experience>6 and self._experience<=18:
+            self._level="Yellow"
+        elif self._experience>18 and self._experience<=42:
+            self._level="Orange"
+        elif self._experience>42:
+            self._level="Red"
+
+
     def kills_zombie(self):
         """ Kills zombie """
         self._zombie_count += 1
         self.increase_experience()
+
+

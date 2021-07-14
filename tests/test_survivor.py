@@ -140,3 +140,15 @@ class TestSurvivors:
 
         assert survivor.experience == 1
         assert survivor.zombie_count == 1
+
+    def test_yellow_level_after_6_kills(self):
+        survivor = Survivor("Becky")
+
+        for i in range(7):
+            survivor.kills_zombie()
+
+
+
+        assert survivor.level=="Yellow"
+    
+
