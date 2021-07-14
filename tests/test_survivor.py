@@ -126,4 +126,9 @@ class TestSurvivors:
 
         assert survivor.level == "Blue"
 
-        
+    def test_survivor_gains_experience(self):
+        survivor = Survivor("Becky")
+
+        survivor.increase_experience()
+
+        assert survivor.experience == 1
