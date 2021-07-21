@@ -147,8 +147,28 @@ class TestSurvivors:
         for i in range(7):
             survivor.kills_zombie()
 
+        assert survivor.level == "Yellow"
 
+    def test_orange_level_after_18_kills(self):
+        survivor = Survivor("Becky")
 
-        assert survivor.level=="Yellow"
-    
+        for i in range(19):
+            survivor.kills_zombie()
 
+        assert survivor.level == "Orange"
+
+    def test_red_level_after_42_kills(self):
+        survivor = Survivor("Becky")
+
+        for i in range(43):
+            survivor.kills_zombie()
+
+        assert survivor.level == "Red"
+
+    def test_blue_level_after_4_kills(self):
+        survivor = Survivor("Becky")
+
+        for i in range(4):
+            survivor.kills_zombie()
+
+        assert survivor.level == "Blue"

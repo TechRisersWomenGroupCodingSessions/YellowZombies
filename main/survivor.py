@@ -1,5 +1,9 @@
 class Survivor:
 
+    BLUE_MAX = 6
+    YELLOW_MAX = 18
+    ORANGE_MAX = 42
+
     def __init__(self, name):
         self._name = name
         self._wounds = 0
@@ -88,15 +92,14 @@ class Survivor:
     def increase_experience(self): 
         """ Increase the survivor experience by 1. 
          """
-        self._experience +=1
+        self._experience += 1
 
-        if self._experience>6 and self._experience<=18:
-            self._level="Yellow"
-        elif self._experience>18 and self._experience<=42:
-            self._level="Orange"
-        elif self._experience>42:
-            self._level="Red"
-
+        if self.BLUE_MAX < self._experience <= self.YELLOW_MAX:
+            self._level = "Yellow"
+        elif self.YELLOW_MAX < self._experience <= self.ORANGE_MAX:
+            self._level = "Orange"
+        elif self._experience > self.ORANGE_MAX:
+            self._level = "Red"
 
     def kills_zombie(self):
         """ Kills zombie """
