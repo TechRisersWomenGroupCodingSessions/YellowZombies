@@ -1,5 +1,6 @@
 # write tests here, don't forget to import what you need and
 # info: https://docs.pytest.org/en/latest/getting-started.html#group-multiple-tests-in-a-class
+from main.enum import Level
 from main.survivor import Survivor
 from pytest import raises
 
@@ -124,7 +125,7 @@ class TestSurvivors:
     def test_survivor_starts_with_level_blue(self):
         survivor = Survivor("Becky")
 
-        assert survivor.level == "Blue"
+        assert survivor.level == Level.BLUE
 
     def test_survivor_gains_experience(self):
         survivor = Survivor("Becky")
@@ -147,7 +148,7 @@ class TestSurvivors:
         for i in range(7):
             survivor.kills_zombie()
 
-        assert survivor.level == "Yellow"
+        assert survivor.level==Level.YELLOW
 
     def test_orange_level_after_18_kills(self):
         survivor = Survivor("Becky")
@@ -155,7 +156,7 @@ class TestSurvivors:
         for i in range(19):
             survivor.kills_zombie()
 
-        assert survivor.level == "Orange"
+        assert survivor.level ==  Level.ORANGE
 
     def test_red_level_after_42_kills(self):
         survivor = Survivor("Becky")
@@ -163,7 +164,7 @@ class TestSurvivors:
         for i in range(43):
             survivor.kills_zombie()
 
-        assert survivor.level == "Red"
+        assert survivor.level == Level.RED
 
     def test_blue_level_after_4_kills(self):
         survivor = Survivor("Becky")
@@ -171,4 +172,8 @@ class TestSurvivors:
         for i in range(4):
             survivor.kills_zombie()
 
-        assert survivor.level == "Blue"
+        assert survivor.level == Level.BLUE
+        
+    
+
+

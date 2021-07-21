@@ -1,3 +1,6 @@
+
+from main.enum import Level
+
 class Survivor:
 
     BLUE_MAX = 6
@@ -13,7 +16,7 @@ class Survivor:
         self._in_reserve_equipment = []
         self._max_capacity = 5
         self._experience = 0
-        self._level = "Blue"
+        self._level = Level.BLUE
         self._zombie_count = 0
 
     @property
@@ -95,11 +98,11 @@ class Survivor:
         self._experience += 1
 
         if self.BLUE_MAX < self._experience <= self.YELLOW_MAX:
-            self._level = "Yellow"
+            self._level = Level.YELLOW
         elif self.YELLOW_MAX < self._experience <= self.ORANGE_MAX:
-            self._level = "Orange"
+            self._level = Level.ORANGE
         elif self._experience > self.ORANGE_MAX:
-            self._level = "Red"
+            self._level = Level.RED
 
     def kills_zombie(self):
         """ Kills zombie """

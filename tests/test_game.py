@@ -1,6 +1,7 @@
 #rename test to whatever random name aishah comes up with that day
 from main.game import Game
 from main.survivor import Survivor
+from main.enum import Level
 from pytest import raises
 
 class TestGame:
@@ -55,10 +56,10 @@ class TestGame:
 
         assert game.game_status() is False
 
-    def test_game_has_level(self):
-        game=Game()
+    def test_game_starts_level(self):
+        game = Game()
 
-        assert game.level == "Blue"
+        assert game.level == Level.BLUE
 
 
 

@@ -1,12 +1,12 @@
 #rename game to whatever random name aishah comes up with that day
 from main.survivor import Survivor
-
+from main.enum import Level
 
 class Game:
 
     def __init__(self):
         self._survivors = []
-        self._level = "Blue"
+        self._level = Level.BLUE
         #self._game_over = False
 
     @property
