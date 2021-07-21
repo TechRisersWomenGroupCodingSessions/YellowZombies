@@ -44,4 +44,4 @@ class Game:
         #         raise Exception("Name already used")
         # self.survivors.append(survivor)
 
-  
+    
