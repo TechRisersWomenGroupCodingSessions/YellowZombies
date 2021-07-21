@@ -173,7 +173,3 @@ class TestSurvivors:
             survivor.kills_zombie()
 
         assert survivor.level == Level.BLUE
-        
-    
-
-

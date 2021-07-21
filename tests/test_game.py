@@ -61,5 +61,24 @@ class TestGame:
 
         assert game.level == Level.BLUE
 
+    
+    def test_game_has_level_of_survivor_with_highest_level(self):
 
+        survivor1 = Survivor("Becky")
+        survivor2 = Survivor("Judy")
+        survivor3 = Survivor("Isabel")
+    
+        game = Game()
+        game.add_survivor(survivor1)
+        game.add_survivor(survivor2)
+        game.add_survivor(survivor3)
+
+        for i in range(7): # Yellow
+            survivor2.kills_zombie()
+
+        for i in range(19): # Orange
+            survivor3.kills_zombie()
+
+        assert game.level == Level.ORANGE
+        assert game.level == survivor3.level
 
