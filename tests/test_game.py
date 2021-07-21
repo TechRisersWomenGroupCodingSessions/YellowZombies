@@ -55,7 +55,10 @@ class TestGame:
 
         assert game.game_status() is False
 
-    
+    def test_game_has_level(self):
+        game=Game()
+
+        assert game.level == "Blue"
 
 
 

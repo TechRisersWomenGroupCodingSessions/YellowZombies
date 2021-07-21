@@ -6,11 +6,16 @@ class Game:
 
     def __init__(self):
         self._survivors = []
+        self._level = "Blue"
         #self._game_over = False
 
     @property
     def survivors(self):
         return self._survivors
+
+    @property
+    def level(self):
+        return self._level
 
     #@property
     #def game_over(self):
@@ -38,3 +43,5 @@ class Game:
         #     if sur.name == survivor.name:
         #         raise Exception("Name already used")
         # self.survivors.append(survivor)
+
+  
