@@ -1,8 +1,9 @@
-#rename test to whatever random name aishah comes up with that day
+# rename test to whatever random name aishah comes up with that day
 from main.game import Game
 from main.survivor import Survivor
 from main.enum import Level
 from pytest import raises
+
 
 class TestGame:
 
@@ -61,9 +62,7 @@ class TestGame:
 
         assert game.level == Level.BLUE
 
-    
     def test_game_has_level_of_survivor_with_highest_level(self):
-
         survivor1 = Survivor("Becky")
         survivor2 = Survivor("Judy")
         survivor3 = Survivor("Isabel")
@@ -73,13 +72,12 @@ class TestGame:
         game.add_survivor(survivor2)
         game.add_survivor(survivor3)
 
-        for i in range(19): # Orange
+        for i in range(19):  # Orange
             survivor2.kills_zombie()
             
-        for i in range(7): # Yellow
+        for i in range(7):  # Yellow
             survivor3.kills_zombie()
 
-
         assert game.level == Level.ORANGE
-        assert game.level == survivor3.level
+        assert game.level == survivor2.level
 
