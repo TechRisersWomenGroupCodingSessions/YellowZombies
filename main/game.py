@@ -1,13 +1,15 @@
 #rename game to whatever random name aishah comes up with that day
 from main.survivor import Survivor
 from main.enum import Level
+from operator import attrgetter
+
 
 class Game:
 
     def __init__(self):
         self._survivors = []
-        self._level = Level.BLUE
-        #self._game_over = False
+        # self._level = Level.BLUE
+        # self._game_over = False
 
     @property
     def survivors(self):
@@ -16,20 +18,20 @@ class Game:
     @property
     def level(self):
         if len(self.survivors) == 0:
-            return self._level
+            return Level.BLUE
         else:
-            survivors_experiences = list(map(lambda s: s.experience, self.survivors))
-            # survivors_experiences = list(s.experience for s in self.survivors)
-            max_value = max(survivors_experiences)
-            max_index = survivors_experiences.index(max_value)
+            # survivors_experiences = list(map(lambda s: s.experience, self.survivors))
+            # max_value = max(survivors_experiences)
+            # max_index = survivors_experiences.index(max_value)
+            highest_survivor = max(self.survivors, key=attrgetter("experience"))
 
-            self._level = self.survivors[max_index].level
+            return highest_survivor.level
 
-        return self._level
+        # return self._level
 
-    #@property
-    #def game_over(self):
-        #return self._game_over
+    # @property
+    # def game_over(self):
+        # return self._game_over
 
 # ahhhh think about this
     def game_status(self):

@@ -156,7 +156,7 @@ class TestSurvivors:
         for i in range(19):
             survivor.kills_zombie()
 
-        assert survivor.level ==  Level.ORANGE
+        assert survivor.level == Level.ORANGE
 
     def test_red_level_after_42_kills(self):
         survivor = Survivor("Becky")
