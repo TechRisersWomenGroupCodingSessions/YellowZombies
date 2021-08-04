@@ -15,6 +15,16 @@ class Game:
 
     @property
     def level(self):
+        if len(self.survivors) == 0:
+            return self._level
+        else:
+            survivors_experiences = list(map(lambda s: s.experience, self.survivors))
+            # survivors_experiences = list(s.experience for s in self.survivors)
+            max_value = max(survivors_experiences)
+            max_index = survivors_experiences.index(max_value)
+
+            self._level = self.survivors[max_index].level
+
         return self._level
 
     #@property

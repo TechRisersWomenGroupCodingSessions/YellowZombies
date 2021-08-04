@@ -73,11 +73,12 @@ class TestGame:
         game.add_survivor(survivor2)
         game.add_survivor(survivor3)
 
-        for i in range(7): # Yellow
-            survivor2.kills_zombie()
-
         for i in range(19): # Orange
+            survivor2.kills_zombie()
+            
+        for i in range(7): # Yellow
             survivor3.kills_zombie()
+
 
         assert game.level == Level.ORANGE
         assert game.level == survivor3.level
