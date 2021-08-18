@@ -9,7 +9,7 @@ class Game:
 
     def __init__(self):
         self._survivors = []
-        self._history = [GameEvent()]
+        self._history = [GameEvent("started game")]
         # self._level = Level.BLUE
         # self._game_over = False
 
