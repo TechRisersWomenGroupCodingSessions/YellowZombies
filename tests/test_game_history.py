@@ -5,4 +5,5 @@ class TestGameHistory:
 
     def test_game_history_begins_by_recording_time(self):
         game = Game()
-        assert len(game.history) > 0
+        assert len(game.history) == 1
+        assert game.history[0].action == ""
