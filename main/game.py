@@ -2,18 +2,24 @@
 from main.survivor import Survivor
 from main.enum import Level
 from operator import attrgetter
+from main.gaming_history import GamingHistory
 
 
 class Game:
 
     def __init__(self):
         self._survivors = []
+        self._history = [GamingHistory()]
         # self._level = Level.BLUE
         # self._game_over = False
 
     @property
     def survivors(self):
         return self._survivors
+
+    @property
+    def history(self):
+        return self._history
 
     @property
     def level(self):

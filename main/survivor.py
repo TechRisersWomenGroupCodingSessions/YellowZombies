@@ -1,6 +1,7 @@
 
 from main.enum import Level
 
+
 class Survivor:
 
     BLUE_MAX = 6
