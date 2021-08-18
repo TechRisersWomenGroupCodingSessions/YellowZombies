@@ -1,7 +1,7 @@
 from main.game import Game
 
 
-class TestGamingHistory:
+class TestGameHistory:
 
     def test_game_history_begins_by_recording_time(self):
         game = Game()
