@@ -1,5 +1,5 @@
 
-class GamingHistory:
+class GameEvent:
 
     def __init__(self):
         self._action = ""
