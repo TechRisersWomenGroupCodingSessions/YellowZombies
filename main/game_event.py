@@ -1,9 +1,5 @@
+from dataclasses import dataclass
 
+@dataclass
 class GameEvent:
-
-    def __init__(self):
-        self._action = ""
-
-    @property
-    def action(self):
-        return self._action
+    action: str = ""
