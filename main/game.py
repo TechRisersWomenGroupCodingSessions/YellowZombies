@@ -55,6 +55,7 @@ class Game:
         if len(survivors_name) > 0:
             raise Exception("Name already used")
         self.survivors.append(survivor)
+        self._history.append(GameEvent("Survivor Added"))
 
         # survivors_name = [sur.name for sur in self.survivors]
         # for sur in self.survivors:
