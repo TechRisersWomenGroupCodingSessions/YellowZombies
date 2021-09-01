@@ -2,6 +2,7 @@ import datetime
 
 from main.game import Game
 from main.survivor import Survivor
+from main.enum import Equipment
 from unittest.mock import MagicMock, patch
 
 #future idea: mock datetime
