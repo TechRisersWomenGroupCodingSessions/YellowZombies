@@ -4,6 +4,7 @@ from main.enum import Level
 from main.survivor import Survivor
 from pytest import raises
 
+# TODO Make all equipment enums for consistency
 
 class TestSurvivors:
 
