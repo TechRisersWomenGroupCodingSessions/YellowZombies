@@ -31,7 +31,7 @@ class TestGameHistory:
         game = Game()
         survivor = Survivor("Becky")
         game.add_survivor(survivor)
-        game.survivor_picks_equipment(survivor, "Katana")
+        game.survivor_picks_equipment(survivor, Equipment.KATANA)
 
         assert len(game.history) == 3
         equipment_obtained_game_event = game.history[2]
