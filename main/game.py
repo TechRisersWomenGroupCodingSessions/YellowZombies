@@ -63,4 +63,6 @@ class Game:
         #         raise Exception("Name already used")
         # self.survivors.append(survivor)
 
-    
+    def survivor_picks_equipment(self, survivor, equipment):
+        survivor.pick_equipment(equipment)
+        self._history.append(GameEvent("Survivor Picked Up Equipment"))

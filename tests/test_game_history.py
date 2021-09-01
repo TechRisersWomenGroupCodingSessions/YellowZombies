@@ -26,3 +26,14 @@ class TestGameHistory:
         assert len(game.history) == 2
         first_game_event = game.history[1]
         assert first_game_event.action == "Survivor Added"
+
+    def test_game_history_survivor_picks_equipment(self):
+        game = Game()
+        survivor = Survivor("Becky")
+        game.add_survivor(survivor)
+        game.survivor_picks_equipment(survivor, "Katana")
+
+        assert len(game.history) == 3
+        equipment_obtained_game_event = game.history[2]
+        assert equipment_obtained_game_event.action == "Survivor Picked Up Equipment"
+
