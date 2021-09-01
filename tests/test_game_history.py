@@ -16,7 +16,7 @@ class TestGameHistory:
         game = Game()
         assert len(game.history) == 1
         first_game_event = game.history[0]
-        assert first_game_event.action == "started game"
+        assert first_game_event.action == "Started Game"
         assert first_game_event.timestamp is not None
 
     def test_game_history_survivor_added(self):
