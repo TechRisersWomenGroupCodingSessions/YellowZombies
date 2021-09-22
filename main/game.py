@@ -66,3 +66,8 @@ class Game:
     def survivor_picks_equipment(self, survivor, equipment):
         survivor.pick_equipment(equipment)
         self._history.append(GameEvent("Survivor Picked Up Equipment"))
+
+    def survivor_gets_an_ouch(self, survivor):
+        survivor.ouch()
+        self._history.append(GameEvent("Survivor Is Wounded"))
+
