@@ -69,6 +69,23 @@ class Game:
 
     def survivor_gets_an_ouch(self, survivor):
         survivor.ouch()
-        #add if fucntion
+
         self._history.append(GameEvent("Survivor Is Wounded"))
+        if survivor.is_dead==True:
+
+            self._history.append(GameEvent("Survivor Is Dead"))
+
+
+
+    def survivor_kills_zombie(self, survivor):
+        survivor.kills_zombie()
+
+        if self.level==Level.BLUE:
+            self._history.append(GameEvent("Survivor levelled up to Blue"))
+        elif self.level==Level.YELLOW:
+            self._history.append(GameEvent("Survivor levelled up to Yellow"))
+        elif self.level==Level.ORANGE:
+            self._history.append(GameEvent("Survivor levelled up to Orange"))
+        else:
+            self._history.append(GameEvent("Survivor levelled up to Red"))
 

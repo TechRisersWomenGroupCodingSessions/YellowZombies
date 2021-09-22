@@ -59,3 +59,16 @@ class TestGameHistory:
         survivor_dies_game_event = game.history[4]
         assert survivor_dies_game_event.action == "Survivor Is Dead"
 
+    def test_game_history_survivor_levels_up(self):
+        game = Game()
+        survivor = Survivor("Becky")
+        game.add_survivor(survivor)
+        for i in range(7):
+            game.survivor_kills_zombie(survivor)
+
+        assert len(game.history) == 9 #we dunno why this is 9 ask becky for help!
+        survivor_levels_up_game_event = game.history[8]
+
+
+        assert survivor_levels_up_game_event.action =="Survivor levelled up to Yellow"
+
