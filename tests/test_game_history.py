@@ -47,3 +47,15 @@ class TestGameHistory:
         assert len(game.history) == 3
         survivor_gets_an_ouch_game_event = game.history[2]
         assert survivor_gets_an_ouch_game_event.action == "Survivor Is Wounded"
+
+    def test_game_history_survivor_dies(self):
+        game = Game()
+        survivor = Survivor("Becky")
+        game.add_survivor(survivor)
+        game.survivor_gets_an_ouch(survivor)
+        game.survivor_gets_an_ouch(survivor)
+
+        assert len(game.history) == 5
+        survivor_dies_game_event = game.history[4]
+        assert survivor_dies_game_event.action == "Survivor Is Dead"
+

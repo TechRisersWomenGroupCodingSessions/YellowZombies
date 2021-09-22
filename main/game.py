@@ -69,5 +69,6 @@ class Game:
 
     def survivor_gets_an_ouch(self, survivor):
         survivor.ouch()
+        #add if fucntion
         self._history.append(GameEvent("Survivor Is Wounded"))
 
