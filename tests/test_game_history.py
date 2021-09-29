@@ -71,5 +71,5 @@ class TestGameHistory:
         survivor_levels_up_game_event = game.history[2]
 
 
-        assert survivor_levels_up_game_event.action =="Survivor levelled up to Yellow"
+        assert survivor_levels_up_game_event.action == f"{survivor.name} levelled up to Yellow" 
 

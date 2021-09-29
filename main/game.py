@@ -81,9 +81,9 @@ class Game:
         survivor.kills_zombie()
 
         if survivor.experience == 7:
-            self._history.append(GameEvent("Survivor levelled up to Yellow"))
+            self._history.append(GameEvent(f"{survivor.name} levelled up to Yellow"))
         elif survivor.experience == 19:
-            self._history.append(GameEvent("Survivor levelled up to Orange"))
+            self._history.append(GameEvent(f"{survivor.name} levelled up to Orange"))
         elif survivor.experience == 43:
-            self._history.append(GameEvent("Survivor levelled up to Red"))
+            self._history.append(GameEvent(f"{survivor.name} levelled up to Red"))
 
