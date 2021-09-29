@@ -73,3 +73,5 @@ class TestGameHistory:
 
         assert survivor_levels_up_game_event.action == f"{survivor.name} levelled up to Yellow" 
 
+    def test_game_history_game_level_changes(self):
+    #player levels up, check that the game level is equal to the highest level achieved by survivor and it leaves a note in the history
