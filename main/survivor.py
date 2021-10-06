@@ -110,4 +110,6 @@ class Survivor:
         self._zombie_count += 1
         self.increase_experience()
 
+    
+
 

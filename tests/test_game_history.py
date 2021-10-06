@@ -88,4 +88,5 @@ class TestGameHistory:
         assert len(game.history) == 4
         game_level_increases_event = game.history[3]
 
-        assert game_level_increases_event == "game level is now Yellow"
+        assert game_level_increases_event == "game levelled up"
+

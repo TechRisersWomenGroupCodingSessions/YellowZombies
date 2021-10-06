@@ -1,11 +1,11 @@
 
-from enum import Enum
+from enum import Enum, auto
 
 class Level(Enum):
-    BLUE = "Blue"
-    YELLOW = "Yellow"
-    ORANGE = "Orange"
-    RED = "Red"
+    BLUE = auto()
+    YELLOW = auto()
+    ORANGE = auto()
+    RED = auto()
 
 # enum Equipment
 class Equipment(Enum):

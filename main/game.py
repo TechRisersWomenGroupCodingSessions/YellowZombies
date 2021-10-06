@@ -82,9 +82,13 @@ class Game:
 
         if survivor.experience == 7:
             self._history.append(GameEvent(f"{survivor.name} levelled up to Yellow"))
-
+            # if yellow is the highest level aomong survivors, change the game level to Yellow 
         elif survivor.experience == 19:
             self._history.append(GameEvent(f"{survivor.name} levelled up to Orange"))
+
         elif survivor.experience == 43:
             self._history.append(GameEvent(f"{survivor.name} levelled up to Red"))
-
+        if survivor.level.value >self.level.value:
+            self.level = survivor.level
+            self._history.append(GameEvent("game levelled up"))
+    
