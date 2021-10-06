@@ -68,7 +68,7 @@ class TestGameHistory:
             game.survivor_kills_zombie(survivor)
         print(game.history)
 
-        assert len(game.history) == 3 #we dunno why this is 9 ask becky for help!
+        assert len(game.history) == 4 #we dunno why this is 9 ask becky for help!
         survivor_levels_up_game_event = game.history[2]
 
 
@@ -88,5 +88,5 @@ class TestGameHistory:
         assert len(game.history) == 4
         game_level_increases_event = game.history[3]
 
-        assert game_level_increases_event == "game levelled up"
+        assert game_level_increases_event.action == "game levelled up"
 

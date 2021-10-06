@@ -10,7 +10,7 @@ class Game:
     def __init__(self):
         self._survivors = []
         self._history = [GameEvent("Started Game")]
-        # self._level = Level.BLUE
+        self._level = Level.BLUE
         # self._game_over = False
 
     @property
@@ -23,17 +23,7 @@ class Game:
 
     @property
     def level(self):
-        if len(self.survivors) == 0:
-            return Level.BLUE
-        else:
-            # survivors_experiences = list(map(lambda s: s.experience, self.survivors))
-            # max_value = max(survivors_experiences)
-            # max_index = survivors_experiences.index(max_value)
-            highest_survivor = max(self.survivors, key=attrgetter("experience"))
-
-            return highest_survivor.level
-
-        # return self._level
+        return self._level
 
     # @property
     # def game_over(self):
@@ -88,7 +78,8 @@ class Game:
 
         elif survivor.experience == 43:
             self._history.append(GameEvent(f"{survivor.name} levelled up to Red"))
-        if survivor.level.value >self.level.value:
-            self.level = survivor.level
+        
+        if survivor.level.value > self.level.value:
+            self._level = survivor.level
             self._history.append(GameEvent("game levelled up"))
     
