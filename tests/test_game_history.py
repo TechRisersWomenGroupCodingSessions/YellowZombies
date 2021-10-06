@@ -2,7 +2,8 @@ import datetime
 
 from main.game import Game
 from main.survivor import Survivor
-from main.enum import Equipment
+from main.enum import Equipment, Level
+
 from unittest.mock import MagicMock, patch
 
 #future idea: mock datetime
@@ -75,3 +76,16 @@ class TestGameHistory:
 
     def test_game_history_game_level_changes(self):
     #player levels up, check that the game level is equal to the highest level achieved by survivor and it leaves a note in the history
+        game = Game()
+        survivor = Survivor("Becky")
+        game.add_survivor(survivor)
+        for i in range(7):
+            game.survivor_kills_zombie(survivor)
+        print(game.history)
+
+        assert game.level == Level.YELLOW
+
+        assert len(game.history) == 4
+        game_level_increases_event = game.history[3]
+
+        assert game_level_increases_event == "game level is now Yellow"
