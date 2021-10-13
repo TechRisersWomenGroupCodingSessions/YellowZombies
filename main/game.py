@@ -33,6 +33,7 @@ class Game:
     def game_status(self):
         survivors_alive = list(filter(lambda s: s.is_dead is False, self.survivors))
         if len(survivors_alive) == 0:
+            self._history.append(GameEvent("Game Over"))    
             return False
         else:
             return True
@@ -72,7 +73,7 @@ class Game:
 
         if survivor.experience == 7:
             self._history.append(GameEvent(f"{survivor.name} levelled up to Yellow"))
-            # if yellow is the highest level aomong survivors, change the game level to Yellow 
+            # if yellow is the highest level among survivors, change the game level to Yellow
         elif survivor.experience == 19:
             self._history.append(GameEvent(f"{survivor.name} levelled up to Orange"))
 
